@@ -173,7 +173,35 @@ btnScrollTo.addEventListener('click', function(e) {
   //   behavior: 'smooth'
   // });
 
-  // 2nd way: mordarn style
+  // 2nd way: mordern or new style
   section1.scrollIntoView({behavior: 'smooth'});
 
-}) 
+});
+
+
+// ** Types of Events and Events Handlers **
+
+const h1 = document.querySelector('h1');
+
+const alertH1 = function(e) {
+  alert('addEventListener: Great! You are reading the heading :D');
+
+  // remove event listerner
+  h1.removeEventListener('mouseenter', alertH1);
+};
+
+// 1st way: new way
+h1.addEventListener('mouseenter', alertH1);
+
+// // 2nd way: old way
+// h1.onmouseenter = function(e) {
+//   alert('onmouseenter: Great! You are reading the heading :D');
+// };
+
+// // remove event listerner after 3s passed
+// setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000); 
+
+
+// 3rd way: old way
+// -- by using HTML attribute in html file.
+
