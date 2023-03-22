@@ -76,6 +76,7 @@ document.querySelector('.btn--close-cookie').addEventListener('click', function(
   message.remove();
 })
 
+/*
 
 // ** Styles **
 message.style.backgroundColor = '#37383d';
@@ -135,3 +136,44 @@ logo.classList.contains('c');  // not includes
 
 // Don't use  # overwrite all classes into this class name
 // logo.className = 'siam';
+
+*/
+
+// ** Implement Smooth Scrolling **
+// 1st way: old style
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function(e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+  console.log(e.target.getBoundingClientRect()); // relative to viewport
+
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+
+  // View port height and width (dimension)
+  console.log(
+    'height / width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  // 1st way: old style
+
+  // Scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset, 
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // // Smooth scrolling
+  // window.scrollTo( {
+  //   left: s1coords.left + window.pageXOffset, 
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth'
+  // });
+
+  // 2nd way: mordarn style
+  section1.scrollIntoView({behavior: 'smooth'});
+
+}) 
